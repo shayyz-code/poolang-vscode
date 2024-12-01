@@ -1,0 +1,39 @@
+{
+  "name": "poo",
+  "publisher": "CodewShayy",
+  "repository": "https://github.com/shayyz-code/poolang-vscode",
+  "license": "MIT",
+  "displayName": "Poo",
+  "author": "Shayy",
+  "icon": "images/poo-icon.png",
+  "description": "Poo language support for Visual Studio Code.",
+  "version": "0.0.3",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "poo",
+        "aliases": [
+          "Poo",
+          "poo"
+        ],
+        "extensions": [
+          ".poo"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "poo",
+        "scopeName": "source.poo",
+        "path": "./syntaxes/poo.tmLanguage.json"
+      }
+    ]
+  }
+}
