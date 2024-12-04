@@ -2,128 +2,84 @@
   "name": "Poo",
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "scopeName": "source.poo",
+  "fileTypes": ["poo"],
   "patterns": [
     {
-      "include": "#comments"
+      "name": "keyword.control.poo",
+      "match": "\\b(poo|poof|use|if|elif|else|for|in|step|return|while|mut)\\b"
     },
     {
-      "include": "#control-keywords"
+      "name": "keyword.operator.logical.poo",
+      "match": "\\b(not|or|and)\\b"
     },
     {
-      "include": "#operators"
+      "name": "storage.type.poo",
+      "match": "\\b(vec|str|float|int|bool|char|void)\\b"
     },
     {
-      "include": "#booleans"
+      "name": "support.function.std.poo",
+      "match": "\\b(pout|sin|cos|_f|_i|extend|fill|cls)\\b"
     },
     {
-      "include": "#string"
+      "name": "variable.parameter.poo",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:)"
     },
     {
-      "include": "#numbers"
+      "name": "constant.numeric.poo",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
     },
     {
-      "include": "#variables"
+      "name": "string.quoted.double.poo",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.poo",
+          "match": "\\\\."
+        }
+      ]
     },
     {
-      "include": "#functions"
+      "name": "string.quoted.single.poo",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.poo",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "comment.block.poo",
+      "begin": "//",
+      "end": "//",
+      "patterns": [
+        {
+          "name": "comment.block.inner.poo",
+          "match": "[^/]+"
+        }
+      ]
+    },
+    {
+      "name": "punctuation.separator.colon.poo",
+      "match": ":"
+    },
+    {
+      "name": "keyword.operator.arithmetic.poo",
+      "match": "(\\+|-|\\*|/|==|!=|<=|>=|=)"
+    },
+    {
+      "name": "punctuation.definition.block.poo",
+      "match": "\\{|\\}"
+    },
+    {
+      "name": "meta.import.poo",
+      "match": "\\b(use)\\s+[a-zA-Z0-9_]+(::[a-zA-Z0-9_]+)?\\b"
+    },
+    {
+      "name": "meta.function-call.poo",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
     }
-  ],
-  "repository": {
-    "control-keywords": {
-      "patterns": [
-        {
-          "name": "keyword.control.poo",
-          "match": "\\b(poo|poof|use|mut|return|while|for|in|if|elif|else)\\b"
-        }
-      ]
-    },
-    "operators": {
-      "patterns": [
-        {
-          "name": "keyword.operator.poo",
-          "match": "\\*|/|\\+|-|=\\b(and|or|not|)\\b"
-        }
-      ]
-    },
-    "booleans": {
-      "patterns": [
-        {
-          "name": "constant.language.boolean.poo",
-          "match": "\\b(true|false)\\b"
-        }
-      ]
-    },
-    "string": {
-      "patterns": [
-        {
-          "name": "string.quoted.double.poo",
-          "begin": "\"",
-          "end": "\"",
-          "patterns": [
-            {
-              "name": "constant.character.escape.poo",
-              "match": "\\\\."
-            }
-          ]
-        }
-      ]
-    },
-    "numbers": {
-      "patterns": [
-        {
-          "name": "constant.numeric.poo",
-          "match": "\\b\\d+\\.?\\d*\\b"
-        }
-      ]
-    },
-    "variables": {
-      "patterns": [
-        {
-          "name": "variable.parameter.poo",
-          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
-        }
-      ]
-    },
-    "functions": {
-      "patterns": [
-        {
-          "name": "meta.function.poo",
-          "begin": "\\bpoof\\s+[a-zA-Z_][a-zA-Z0-9_]*",
-          "end": "\\{",
-          "captures": {
-            "0": {
-              "name": "entity.name.function.poo"
-            }
-          },
-          "patterns": [
-            {
-              "name": "variable.parameter.function.poo",
-              "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
-            },
-            {
-              "name": "storage.type.poo",
-              "match": "\\b(vec|int|float|void|bool|string)\\b"
-            }
-          ]
-        },
-        {
-          "name": "support.function.std.poo",
-          "match": "\\bpout\\b"
-        },
-        {
-          "name": "support.method.builtin.vector.poo",
-          "match": "\\bpop\\b"
-        }
-      ]
-    },
-    "comments": {
-      "patterns": [
-        {
-          "name": "comment.line.double-slash.poo",
-          "match": "//.*$"
-        }
-      ]
-    }
-  },
-  "fileTypes": ["poo"]
+  ]
 }
